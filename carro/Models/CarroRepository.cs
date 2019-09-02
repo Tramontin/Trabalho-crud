@@ -5,7 +5,7 @@ namespace carro.Models
     public class CarroRepository
     {
         
-   public static List<Carro> carro = new List<Carro>();
+   public static List<Carro> carros = new List<Carro>();
     
         public CarroRepository()
         {           
@@ -13,28 +13,31 @@ namespace carro.Models
 
         public void Create(Carro carro)
         {
-            Carro.Add(carro);
+            carros.Add(carro);
         }
         public List<Carro> GetAll()
         {
-            return carro;
+            return carros;
         }
         
         public Carro GetById(int id)
         {
-            return carro.Find(i=>i.id == id);
+            return carros.Find(i=>i.id == id);
         }
         
         public void Delete(int id)
         {
-            carro.Remove(GetById(id));
+            carros.Remove(GetById(id));
 
         }
         public void Update(Carro carro)
         {
-            var index  = carro.FindIndex(x=>x.id == carro.id);
-            //people[index].name = person.name;
-            //people[index].address = person.address;
+            var index  = carros.FindIndex(x=>x.id == carro.id);
+            carros[index].ano_fabricacao = carro.ano_fabricacao;
+            carros[index].portas = carro.portas;
+            carros[index].cor = carro.cor;
+            carros[index].tipo_banco = carro.tipo_banco;
+            carros[index].marca = carro.marca;      
 
         }
 
