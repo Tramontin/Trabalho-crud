@@ -1,0 +1,39 @@
+@model IEnumerable<carro.Models.Carro>
+
+</br></br>
+<a href="Create" class="btn btn-primary">Novo Carro</a>
+</br></br>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ano de Fabricação</th>
+                <th>Quantidade de Portas</th>
+                <th>Cor</th>
+                <th>Tipo de Banco</th>
+                <th>Marca</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </tr>
+        </thead>
+
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.ano_fabricacao</td>
+                <td>@item.portas</td>
+                <td>@item.cor</td>
+                <td>@item.tipo_banco</td>
+                <td>@item.marca</td>
+                <td><a class="btn btn-danger"
+                    href="Carro/Delete/@item.id">Delete</a> </td>
+                <td><a class="btn btn-primary" 
+                    href="Carro/Edit/@item.id">Editar</a> </td>
+            </tr>
+        }
+    </table>
+</div>
